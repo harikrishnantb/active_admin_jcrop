@@ -92,7 +92,7 @@ Add In Active Admin to work with create function
         controller do
           def create
             super
-            @newsfeed.active_admin_crop! params
+            @resource.active_admin_crop! params
           end  
         end 
 
