@@ -4,7 +4,6 @@ window.active_admin_jcrop =
       $('.crop_modal_open').click ->
         content = $(this).parent().find('.crop_modal_content').clone()
         image = content.find('img.cropping_image')
-        $('.cropping_image')[0].src =  window.URL.createObjectURL($(this).parent().find('file')[0]);
         active_admin_jcrop.buttons_text = 
           save_cropped_image: image.data('translateSaveCroppedImage')
           cancel: image.data('translateCancel')
@@ -90,5 +89,16 @@ window.active_admin_jcrop =
         return
       return
 
+    
+      
+
 $ ->
   active_admin_jcrop.start()
+
+window.active_admin_jcrop_file =
+  start: ->  
+    $('.jcropable').find('input:file').on 'change', (e) ->
+      $('.cropping_image')[0].src = URL.createObjectURL(this.files[0])
+
+$ ->
+  active_admin_jcrop_file.start()      
