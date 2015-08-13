@@ -4,6 +4,7 @@ window.active_admin_jcrop =
       $('.crop_modal_open').click ->
         content = $(this).parent().find('.crop_modal_content').clone()
         image = content.find('img.cropping_image')
+        $('.cropping_image')[0].src =  window.URL.createObjectURL($(this).parent().find('file')[0]);
         active_admin_jcrop.buttons_text = 
           save_cropped_image: image.data('translateSaveCroppedImage')
           cancel: image.data('translateCancel')
@@ -28,14 +29,20 @@ window.active_admin_jcrop =
               click: ->
                 text: 'aews'
                 cropper = active_admin_jcrop.cropper
-                $.ajax
-                  type: 'PUT'
-                  url: cropper.jcropper_url
-                  data:
-                    image_data: cropper
-                  error: ->
-                    alert('There was an error while cropping the image')
-                  $(@).dialog('close')                
+                console.log(cropper);
+                $('#crop_h').val(cropper.crop_h)
+                $('#crop_w').val(cropper.crop_w)
+                $('#crop_x').val(cropper.crop_x)
+                $('#crop_y').val(cropper.crop_y)
+                if cropper.object_id > 0
+                  $.ajax
+                    type: 'PUT'
+                    url: cropper.jcropper_url
+                    data:
+                      image_data: cropper
+                    error: ->
+                      alert('There was an error while cropping the image')
+                $(@).dialog('close')                
             }
             {
               text: active_admin_jcrop.buttons_text.cancel

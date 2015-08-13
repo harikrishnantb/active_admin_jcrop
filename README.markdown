@@ -86,6 +86,16 @@ Localize the crop feature by adding these entries:
               cancel: Cancel
 
 
+Add In Active Admin to work with create function
+
+  controller do
+    def create
+      super
+      @newsfeed.active_admin_crop! params
+    end  
+  end 
+
+
 ## Dependencies ##
 
 * MRI +1.9.3 (All above 1.8.6 should work)
