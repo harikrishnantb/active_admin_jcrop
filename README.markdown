@@ -85,15 +85,16 @@ Localize the crop feature by adding these entries:
               save_cropped_image: Save Cropped Image
               cancel: Cancel
 
+## Active Admin Create ##
 
 Add In Active Admin to work with create function
 
-  controller do
-    def create
-      super
-      @newsfeed.active_admin_crop! params
-    end  
-  end 
+        controller do
+          def create
+            super
+            @newsfeed.active_admin_crop! params
+          end  
+        end 
 
 
 ## Dependencies ##
