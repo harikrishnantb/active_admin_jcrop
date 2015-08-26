@@ -32,15 +32,7 @@ window.active_admin_jcrop =
                 $('#crop_h').val(cropper.crop_h)
                 $('#crop_w').val(cropper.crop_w)
                 $('#crop_x').val(cropper.crop_x)
-                $('#crop_y').val(cropper.crop_y)
-                if cropper.object_id > 0
-                  $.ajax
-                    type: 'PUT'
-                    url: cropper.jcropper_url
-                    data:
-                      image_data: cropper
-                    error: ->
-                      //alert('There was an error while cropping the image')
+                $('#crop_y').val(cropper.crop_y)  
                 $(@).dialog('close')                
             }
             {
