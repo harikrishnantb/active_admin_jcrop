@@ -12,3 +12,10 @@
 {
   position:fixed;
 }
+
+
+.ui-dialog-buttonset:first-child {
+	position:absolute !important;
+	right: 10px !important;
+	top : 10px !important;
+}

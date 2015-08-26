@@ -40,7 +40,7 @@ window.active_admin_jcrop =
                     data:
                       image_data: cropper
                     error: ->
-                      alert('There was an error while cropping the image')
+                      //alert('There was an error while cropping the image')
                 $(@).dialog('close')                
             }
             {
